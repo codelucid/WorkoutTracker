@@ -25,7 +25,7 @@ router.post("/api/workouts/", ({ body }, res) => {
     })
 });
 
-// Do I need mongojs to replace dbWorkout??? Params instead of body for the request???
+// Do I need mongojs to replace dbWorkout on line 30??? Params instead of body for the request on line 29??? That would mean switching body.id and params.id on line30, too
 router.put("/api/workouts/:id", ({ body }, res) => {
     Workout.updateOne({_id: dbWorkout.ObjectId(body.id)}, {$set: {exercises: (params.id) }}).then(dbWorkout => {
         res.json(dbWorkout);
