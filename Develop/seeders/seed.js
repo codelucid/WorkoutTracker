@@ -1,6 +1,7 @@
 let mongoose = require("mongoose");
-let db = require("../models");
-
+let Workout = require("../models/workout.js");
+// Line 2, replace Workout with db, if referencing activity 15
+// let db = require("../models");
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
@@ -126,17 +127,21 @@ let workoutSeed = [
     day: new Date().setDate(new Date().getDate()-1),
     exercises: [
       {
-        type: "resistance",
-        name: "Bench",
-        duration: 30,
+        type: "cardio",
+        name: "mile run",
+        duration: 12,
         distance: 2
       }
     ]
   }
 ];
 
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+// reference activity 15 for an Index.js file setup
+// so may need to change this back, if you reference that
+// db.Workout.deleteMany({}) on Line 143
+// .then(() => db.Workout.collection.insertMany(workoutSeed)) on Line 144
+Workout.deleteMany({})
+  .then(() => Workout.collection.insertMany(workoutSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
