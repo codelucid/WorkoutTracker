@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 const path = require("path");
 
+// Use "const db = require("../models");" if incorporating the Index.js file in Models folder
+// Then delete "const Workout = require("../models/workout.js");"
 // const db = require("../models");
 
 
