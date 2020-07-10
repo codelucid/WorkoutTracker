@@ -6,31 +6,32 @@ const path = require("path");
 //     res.sendFile(path.join(__dirname + "../public/index.html"));
 // });
 
-// router.get("/exercise/", (req, res) => {
-//     res.sendFile(path.join(__dirname + "../public/exercise.html"));
-// });
-
-// router.get("/stats/", (req, res) => {
-//     res.sendFile(path.join(__dirname + "../public/stats.html"));
-// });
-
-router.get("/exercise/", (req,res) => {
-    Workout.find({}).then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-        .catch(err => {
-            res.status(400).json(err);
-        });
+router.get("/exercise/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
 
-router.get("/stats/", (req,res) => {
-    Workout.find({}).then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-        .catch(err => {
-            res.status(400).json(err);
-        });
+router.get("/stats/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
+
+// router.get("/exercise/", (req,res) => {
+//     Workout.find({}).then(dbWorkout => {
+//         res.json(dbWorkout); 
+            
+//     })
+//         .catch(err => {
+//             res.status(400).json(err);
+//         });
+// });
+
+// router.get("/stats/", (req,res) => {
+//     Workout.find({}).then(dbWorkout => {
+//         res.json(dbWorkout);
+//     })
+//         .catch(err => {
+//             res.status(400).json(err);
+//         });
+// });
 
 router.get("/api/workouts", (req, res) => {
     Workout.find({}).sort({ day: -1 }).then(dbWorkout => {
@@ -41,10 +42,8 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-// Do I need $set { day: Date.now() } below??? Or is in icluded from the model
 router.post("/api/workouts/", ({ body }, res) => {
     Workout.create(body)
-    .then(({_id}) => Workout.findByIdAndUpdate({_id}, { $set: { day: Date.now() } }, { new: true}))
     .then(dbWorkout => {
         res.json(dbWorkout);
     })
@@ -53,16 +52,15 @@ router.post("/api/workouts/", ({ body }, res) => {
         })
 });
 
-// Do I need mongojs to replace dbWorkout on line 30??? Params instead of body for the request on line 29??? That would mean switching body.id and params.id on line30, too
-router.put("/api/workouts/:id", ({ body }, res) => {
-    Workout.updateOne(body.id) 
-    .then(({_id}) => Workout.findOneAndUpdate({_id}, { $push: { exercises: (params.id) } }))
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+    const { id }= params;
+    Workout.findByIdAndUpdate(id, { $push: { exercises: body } }, {upsert: true})
     .then(dbWorkout => {
         res.json(dbWorkout);
     })
-        .catch(err => {
-            res.status(400).json(err);
-        })
+    .catch(err => {
+        res.status(400).json(err);
+    })
 });
 
 router.get("/api/workouts/range", (req, res) => {
