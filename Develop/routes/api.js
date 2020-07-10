@@ -2,9 +2,8 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 const path = require("path");
 
-// router.get("/", (req, res) => {
-//     res.sendFile(path.join(__dirname + "../public/index.html"));
-// });
+// const db = require("../models");
+
 
 router.get("/exercise/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
@@ -14,27 +13,10 @@ router.get("/stats/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
-// router.get("/exercise/", (req,res) => {
-//     Workout.find({}).then(dbWorkout => {
-//         res.json(dbWorkout); 
-            
-//     })
-//         .catch(err => {
-//             res.status(400).json(err);
-//         });
-// });
 
-// router.get("/stats/", (req,res) => {
-//     Workout.find({}).then(dbWorkout => {
-//         res.json(dbWorkout);
-//     })
-//         .catch(err => {
-//             res.status(400).json(err);
-//         });
-// });
 
 router.get("/api/workouts", (req, res) => {
-    Workout.find({}).sort({ day: -1 }).then(dbWorkout => {
+    Workout.find({}).then(dbWorkout => {
         res.json(dbWorkout);
     })
         .catch(err => {
@@ -64,7 +46,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    Workout.find({}).sort({ day: -1 }).limit(7).then(dbWorkout => {
+    Workout.find({}).sort({ day: 1 }).limit(7).then(dbWorkout => {
         res.json(dbWorkout);
     })
         .catch(err => {
