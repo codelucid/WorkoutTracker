@@ -1,24 +1,8 @@
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
-const path = require("path");
-
-// Use "const db = require("../models");" if incorporating the Index.js file in Models folder
-// Then delete "const Workout = require("../models/workout.js");"
-// const db = require("../models");
-
-
-router.get("/exercise/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/exercise.html"));
-});
-
-router.get("/stats/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/stats.html"));
-});
-
-
 
 router.get("/api/workouts", (req, res) => {
-    Workout.find({}).then(dbWorkout => {
+    Workout.find().then(dbWorkout => {
         res.json(dbWorkout);
     })
         .catch(err => {
@@ -26,36 +10,43 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-router.post("/api/workouts/", ({ body }, res) => {
-    Workout.create(body)
-    .then(dbWorkout => {
+router.post("/api/workouts", (req, res) => {
+    Workout.create({}).then(dbWorkout => {
         res.json(dbWorkout);
     })
         .catch(err => {
             res.status(400).json(err);
-        })
+        });
 });
 
 router.put("/api/workouts/:id", ({ body, params }, res) => {
-    const { id }= params;
-    Workout.findByIdAndUpdate(id, { $push: { exercises: body } }, {upsert: true})
-    .then(dbWorkout => {
-        res.json(dbWorkout);
+    Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } }, { new: true, runValidators: true })
+        .then(dbWorkout => {
+            res.json(dbWorkout);
     })
-    .catch(err => {
-        res.status(400).json(err);
-    })
+        .catch(err => {
+            res.status(400).json(err);
+        });
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    Workout.find({}).sort({ day: 1 }).limit(7).then(dbWorkout => {
+    Workout.find({}).limit(7).then(dbWorkout => {
+        console.log(dbWorkout);
         res.json(dbWorkout);
     })
         .catch(err => {
             res.status(400).json(err);
-        })
+        });
 });
 
-
+router.delete("/api/workouts", ({ body }, res) => {
+    Workout.findByIdAndDelete(body.id)
+        .then(() => {
+            res.json(true);
+    })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+});
 
 module.exports = router;
