@@ -1,6 +1,6 @@
 # WorkoutTracker 
 
-![GitHub license](https://img.shields.io/badge/license-None-brightgreen)
+![GitHub license](https://img.shields.io/badge/Skill-HTML-brightgreen) ![GitHub license](https://img.shields.io/badge/Skill-CSS-blue) ![GitHub license](https://img.shields.io/badge/Skill-JavaScript-red) ![GitHub license](https://img.shields.io/badge/Skill-Express-yellow) ![GitHub license](https://img.shields.io/badge/Skill-NodeJS-green) ![GitHub license](https://img.shields.io/badge/Skill-MongoDB-orange) ![GitHub license](https://img.shields.io/badge/Skill-Mongoose-blue)
 
 ## Description  
 
@@ -26,8 +26,7 @@ Contact Codelucid for details, but always pull first and commit often!
 
 ## License  
 
-The license for this project:
-None  
+![GitHub license](https://img.shields.io/badge/license-None-brightgreen)
 
 ## Contributing  
 
@@ -43,6 +42,6 @@ This is the command to initiate testing:
 
 If you have questions about the repo, contact Codelucid directly, at coophealey@gmail.com.
 
-[![My Profile Picture](/Develop/profilePic.png)](https://github.com/codelucid "My Profile Picture")
+[![My Profile Picture](/profilePic.png)](https://github.com/codelucid "My Profile Picture")
 
 [My Portfolio](https://codelucid.github.io/Portfolio/ "My Portfolio")
