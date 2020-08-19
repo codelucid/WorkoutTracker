@@ -1,10 +1,12 @@
 # WorkoutTracker 
 
-![GitHub license](https://img.shields.io/badge/Skill-HTML-brightgreen) ![GitHub license](https://img.shields.io/badge/Skill-CSS-blue) ![GitHub license](https://img.shields.io/badge/Skill-JavaScript-red) ![GitHub license](https://img.shields.io/badge/Skill-Express-yellow) ![GitHub license](https://img.shields.io/badge/Skill-NodeJS-green) ![GitHub license](https://img.shields.io/badge/Skill-MongoDB-orange) ![GitHub license](https://img.shields.io/badge/Skill-Mongoose-blue)
+![GitHub license](https://img.shields.io/badge/Skill-HTML-brightgreen) ![GitHub license](https://img.shields.io/badge/Skill-CSS-blue) ![GitHub license](https://img.shields.io/badge/Skill-JavaScript-red) ![GitHub license](https://img.shields.io/badge/Skill-Express-yellow) ![GitHub license](https://img.shields.io/badge/Skill-NodeJS-green) ![GitHub license](https://img.shields.io/badge/Skill-MongoDB-Atlas-orange) ![GitHub license](https://img.shields.io/badge/Skill-Mongoose-blue) ![GitHub license](https://img.shields.io/badge/Deployment-Heroku-purple) 
 
 ## Description  
 
 Are you ready to view, create, and track your daily workouts? This application allows you to log multiple exercises, in a workout, on a given day! You can track the name, type, weight, sets, reps, and duration of your exercise. You can also track cardio exercises, by the distance traveled, while you get a great workout! 
+
+[Workout Tracker](https://workouttrackerforall.herokuapp.com/)
 
 ## Table of Contents
 - Installation 
