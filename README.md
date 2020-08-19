@@ -1,6 +1,6 @@
 # WorkoutTracker 
 
-![GitHub license](https://img.shields.io/badge/Skill-HTML-brightgreen) ![GitHub license](https://img.shields.io/badge/Skill-CSS-blue) ![GitHub license](https://img.shields.io/badge/Skill-JavaScript-red) ![GitHub license](https://img.shields.io/badge/Skill-Express-yellow) ![GitHub license](https://img.shields.io/badge/Skill-NodeJS-green) ![GitHub license](https://img.shields.io/badge/Skill-MongoDB-Atlas-orange) ![GitHub license](https://img.shields.io/badge/Skill-Mongoose-blue) ![GitHub license](https://img.shields.io/badge/Deployment-Heroku-purple) 
+![GitHub license](https://img.shields.io/badge/Skill-HTML-brightgreen) ![GitHub license](https://img.shields.io/badge/Skill-CSS-blue) ![GitHub license](https://img.shields.io/badge/Skill-JavaScript-red) ![GitHub license](https://img.shields.io/badge/Skill-Express-yellow) ![GitHub license](https://img.shields.io/badge/Skill-NodeJS-green) ![GitHub license](https://img.shields.io/badge/Skill-MongoDBAtlas-orange) ![GitHub license](https://img.shields.io/badge/Skill-Mongoose-blue) ![GitHub license](https://img.shields.io/badge/Deployment-Heroku-purple) 
 
 ## Description  
 
